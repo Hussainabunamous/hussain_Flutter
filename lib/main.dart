@@ -19,24 +19,12 @@ class MyProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home), title: Text("home")
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),title: Text("search")
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),title: Text("favorite")
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),title: Text("profile")
-          ),
-        ],
-      ),
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home) , title: Text("") , backgroundColor: Colors.lightBlue ),
+        BottomNavigationBarItem(icon: Icon(Icons.search) , title: Text("") , backgroundColor: Colors.deepOrange),
+        BottomNavigationBarItem(icon: Icon(Icons.favorite_border) , title: Text("") , backgroundColor: Colors.red),
+        BottomNavigationBarItem(icon: Icon(Icons.person) , title: Text("") , backgroundColor: Colors.amber ),
+      ]),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 5,
@@ -81,13 +69,13 @@ class MyProfile extends StatelessWidget {
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.6,
-                        height: MediaQuery.of(context).size.height * 0.14,
+                        height: MediaQuery.of(context).size.height * 0.12,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsets.only(top: 16, left: 16, right: 16),
+                                  EdgeInsets.only(top: 16, left: 16, right: 16 ),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -111,10 +99,12 @@ class MyProfile extends StatelessWidget {
                               width: 8,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 16, right: 16),
-                              child: MyButton(
-                                text: 'Edit Profile',
-                              ),
+                              padding: EdgeInsets.only(left: 14, right: 14),
+                              child: OutlineButton(
+                                onPressed: (){},
+                                color: Colors.black38,
+                                child: Text("Edit profile" , style: TextStyle(fontSize: 12 , fontWeight: FontWeight.bold),),
+                              )
                             )
                           ],
                         ),
@@ -153,21 +143,21 @@ class MyProfile extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Expanded(
-                                child: MyButton(
+                                child: Mybuttoncustum(
                               text: 'Add Product',
                             )),
                             SizedBox(
                               width: 8,
                             ),
                             Expanded(
-                                child: MyButton(
+                                child: Mybuttoncustum(
                               text: 'Share',
                             )),
                             SizedBox(
                               width: 8,
                             ),
                             Expanded(
-                                child: MyButton(
+                                child: Mybuttoncustum(
                               text: 'Contact Us',
                             )),
                           ],
@@ -181,21 +171,21 @@ class MyProfile extends StatelessWidget {
             Divider(),
             Container(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.43,
+              height: MediaQuery.of(context).size.height * 0.40,
               child: GridView.builder(
                 padding: EdgeInsets.all(8),
                 itemCount: 9,
                 itemBuilder: (context, index) {
                   return ClipRRect(
                     borderRadius: BorderRadius.circular(16),
-                    child: Image.asset('assets/images/${index + 1}.jpeg'),
+                    child: Image.asset('assets/images/m9.jpg'),
                   );
                 },
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   childAspectRatio: 1,
                   crossAxisCount: 3,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 7,
+                  mainAxisSpacing: 7,
                 ),
               ),
             ),
@@ -206,8 +196,8 @@ class MyProfile extends StatelessWidget {
   }
 }
 
-class MyButton extends StatelessWidget {
-  MyButton({Key key, this.text}) : super(key: key);
+class Mybuttoncustum extends StatelessWidget {
+  Mybuttoncustum({Key key, this.text}) : super(key: key);
 
   String text;
 
